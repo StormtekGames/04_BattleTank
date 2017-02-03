@@ -52,14 +52,16 @@ void ATankAIController::Tick(float DeltaTime)
 	ATank * playerTank = GetPlayerTank();
 
 	if (playerTank != nullptr) {
+		
 		FVector PlayerHitLocation = playerTank->GetActorLocation();
+
+		// Aim towards the player
 		GetControlledTank()->TankAimingComponent->AimAt(PlayerHitLocation, GetControlledTank()->LaunchSpeed);
 
 		// TODO Move towards the player
 
-		// Aim towards the player
-
 		// Fire if ready
+		GetControlledTank()->Fire();
 	}
 	
 }
